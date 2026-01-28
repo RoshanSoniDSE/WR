@@ -21,7 +21,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, .serif {
+        h1, h2, h3, h4, .serif {
             font-family: 'Playfair Display', serif;
             letter-spacing: -0.02em;
         }
@@ -70,25 +70,6 @@
             text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
         }
 
-        .gradient-border {
-            position: relative;
-            border-radius: 1rem;
-        }
-        
-        .gradient-border::before {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: 1rem;
-            padding: 1px;
-            background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.5), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -97,46 +78,48 @@
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Subtle Background Elements -->
     <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
     <div class="fixed top-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
-    <div class="fixed bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-900/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/40 backdrop-blur-xl">
-        <div class="max-w-6xl mx-auto px-8 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
             <a href="#" class="font-bold tracking-tighter text-xl text-white group flex items-center gap-2">
                 <span class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-[10px] group-hover:rotate-12 transition-transform">RS</span>
                 ROSHAN SONI
             </a>
-            <div class="hidden md:flex items-center gap-12">
+            <div class="hidden md:flex items-center gap-10">
                 <a href="#experience" class="nav-link text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white">Experience</a>
                 <a href="#projects" class="nav-link text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white">Projects</a>
-                <a href="#leadership" class="nav-link text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white">Leadership</a>
-                <a href="mailto:roshansoni.econdse@gmail.com" class="px-6 py-2 bg-white text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-indigo-600 hover:text-white transition-all rounded-full">
-                    Contact
-                </a>
+                <a href="#skills" class="nav-link text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white">Skills</a>
+                <a href="#education" class="nav-link text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white">Education</a>
+                <a href="mailto:roshansoni.econdse@gmail.com" class="px-6 py-2 bg-white text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-indigo-600 hover:text-white transition-all rounded-full">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative pt-48 pb-32 px-8 max-w-6xl mx-auto z-10">
+    <!-- Hero -->
+    <header class="relative pt-48 pb-32 px-8 max-w-7xl mx-auto z-10">
         <div class="grid lg:grid-cols-[1.5fr_1fr] gap-16 items-center">
             <div>
                 <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border-indigo-500/20 text-indigo-400 text-[10px] font-bold uppercase tracking-widest mb-8 animate-float">
                     <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_10px_#6366f1]"></span>
-                    Open for Strategic Roles
+                    Qualified UGC-NET & IIT-JAM (2025)
                 </div>
                 <h1 class="text-6xl md:text-8xl font-black text-white mb-10 leading-[0.95] tracking-tighter">
                     Economics <br/> <span class="text-indigo-500 italic font-medium">meets</span> Intelligence.
                 </h1>
                 <p class="text-xl text-zinc-400 max-w-xl mb-12 leading-relaxed font-light">
-                    Specializing in <span class="text-white font-medium text-glow">quantitative econometrics</span> and AI deployment. Currently refining evaluation frameworks at <span class="text-white font-medium border-b border-indigo-500/50">TATA Group</span>.
+                    M.A. Economics Candidate at <span class="text-white border-b border-indigo-500/30">Delhi School of Economics</span>. Bridging quantitative econometrics with data-driven strategy.
                 </p>
                 <div class="flex flex-wrap items-center gap-8">
                     <a href="https://www.linkedin.com/in/roshan-soni-a8a56123a" target="_blank" class="flex items-center gap-3 px-8 py-4 glass rounded-2xl text-sm font-bold text-white hover:bg-indigo-600/20 hover:border-indigo-500/50 transition-all group">
@@ -144,31 +127,29 @@
                     </a>
                     <div class="flex items-center gap-4">
                         <div class="h-12 w-px bg-zinc-800"></div>
-                        <div>
-                            <p class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Currently At</p>
-                            <p class="text-sm font-bold text-white">DSE, Delhi</p>
+                        <div class="text-sm">
+                            <p class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Contact</p>
+                            <p class="font-bold text-white">+91 62005 83723</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
             <div class="hidden lg:block">
                 <div class="glass p-10 rounded-[40px] border-indigo-500/10 relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div class="space-y-8">
                         <div>
-                            <p class="text-4xl font-black text-white leading-none">91.4%</p>
-                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Rank 9 State Board</p>
+                            <p class="text-4xl font-black text-white leading-none">96.0%</p>
+                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Class X Score</p>
                         </div>
                         <div class="h-px bg-zinc-800"></div>
                         <div>
-                            <p class="text-4xl font-black text-indigo-500 leading-none">20%</p>
-                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Model Efficiency Gain</p>
+                            <p class="text-4xl font-black text-indigo-500 leading-none">200+</p>
+                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Problem Solving Hours</p>
                         </div>
                         <div class="h-px bg-zinc-800"></div>
                         <div>
-                            <p class="text-4xl font-black text-white leading-none">1.8</p>
-                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Arbitrage Sharpe Ratio</p>
+                            <p class="text-4xl font-black text-white leading-none">92.6k</p>
+                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Merit Scholarship (INR)</p>
                         </div>
                     </div>
                 </div>
@@ -178,92 +159,76 @@
 
     <!-- Experience -->
     <section id="experience" class="py-32 px-8 relative z-10 border-t border-white/5 bg-zinc-950/30">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
-                <div>
-                    <h2 class="text-4xl font-bold italic text-white mb-4">Experience</h2>
-                    <p class="text-zinc-500 uppercase tracking-[0.3em] text-[10px] font-black">Building and analyzing at scale</p>
-                </div>
-                <div class="h-px bg-zinc-800 flex-1 mx-12 hidden md:block"></div>
-            </div>
-
-            <div class="space-y-12">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold italic text-white mb-20">Internships & Professional Roles</h2>
+            <div class="grid gap-8">
                 <!-- Tata Group -->
-                <div class="group grid md:grid-cols-[1fr_2.5fr] gap-12 p-8 glass rounded-[32px] glass-hover transition-all">
-                    <div class="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em]">Jan 2025 — Present</div>
-                    <div class="space-y-6">
-                        <h3 class="text-3xl font-bold text-white group-hover:text-indigo-400 transition-colors">TATA Group</h3>
-                        <p class="text-zinc-400 text-lg leading-relaxed max-w-3xl">
-                            Designing a <span class="text-white">7-parameter evaluation framework</span> for enterprise AI Platforms. Successfully engineered ingestion strategies that boosted model reliability by 20%. Working directly with CEO-level strategy teams.
+                <div class="group grid md:grid-cols-[1fr_3fr] gap-12 p-10 glass rounded-[40px] glass-hover transition-all">
+                    <div>
+                        <div class="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-4">Jan 2025 — Present</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">TATA Group</h3>
+                        <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest italic">Product Development Intern, AI Platforms</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-zinc-400 leading-relaxed">
+                            Designed a 7-parameter output evaluation framework and a 3-tier validation system for <span class="text-white">10,000+ datasets</span>. Engineered ingestion strategies that drove a <span class="text-white">20% improvement in model accuracy</span>. Partnered with the CEO and Data Strategy teams for national-scale AI deployment.
                         </p>
-                        <div class="flex gap-4">
-                            <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-500 uppercase tracking-widest">AI Platforms</span>
-                            <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Data Engineering</span>
-                        </div>
                     </div>
                 </div>
 
                 <!-- IEG -->
-                <div class="group grid md:grid-cols-[1fr_2.5fr] gap-12 p-8 glass rounded-[32px] glass-hover transition-all">
-                    <div class="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em]">2024 — 2025</div>
-                    <div class="space-y-6">
-                        <h3 class="text-3xl font-bold text-white group-hover:text-indigo-400 transition-colors">Inst. of Economic Growth</h3>
-                        <p class="text-zinc-400 text-lg leading-relaxed max-w-3xl">
-                            Rigorous OLS modeling on <span class="text-white">629k+ NFHS records</span>. Dissected climate health disparities by mapping mortality across 30,000+ clusters.
+                <div class="group grid md:grid-cols-[1fr_3fr] gap-12 p-10 glass rounded-[40px] glass-hover transition-all">
+                    <div>
+                        <div class="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-4">2024 — 2025</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">IEG</h3>
+                        <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest italic">Research Analyst Intern</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-zinc-400 leading-relaxed">
+                            Modeled 629k+ NFHS households via OLS, identifying climate-health disparities. Mapped mortality indicators across 30,000+ clusters by Koppen climate zones, analyzing how heat and aridity depress wealth.
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Credentials Section -->
-    <section id="leadership" class="py-32 px-8 relative z-10">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
-            <!-- Leadership -->
-            <div class="space-y-12">
-                <h2 class="text-4xl font-bold italic text-white">Leadership</h2>
-                <div class="space-y-12 border-l border-zinc-800 pl-8">
-                    <div class="relative">
-                        <div class="absolute -left-[37px] top-2 w-4 h-4 bg-indigo-600 rounded-full border-4 border-[#050505]"></div>
-                        <h4 class="text-xl font-bold text-white mb-2 tracking-tight">Senior Placement Coordinator</h4>
-                        <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-4">Delhi School of Economics</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">Elected to manage career growth for 600+ students. Liaising with 200+ organizations.</p>
+                <!-- Chegg -->
+                <div class="group grid md:grid-cols-[1fr_3fr] gap-12 p-10 glass rounded-[40px] glass-hover transition-all">
+                    <div>
+                        <div class="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-4">2023 — 2024</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Chegg India</h3>
+                        <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest italic">Subject Matter Expert</p>
                     </div>
-                    <div class="relative">
-                        <div class="absolute -left-[37px] top-2 w-4 h-4 bg-zinc-800 rounded-full border-4 border-[#050505]"></div>
-                        <h4 class="text-xl font-bold text-white mb-2 tracking-tight">Club Editor</h4>
-                        <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-4">Rotaract • St. Xavier's</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">Impacted 1,000+ lives through 40+ club activities and strategic sponsorships.</p>
+                    <div class="space-y-4">
+                        <p class="text-zinc-400 leading-relaxed">
+                            Solved 300+ complex queries in Economics & Statistics through 200+ hours of problem-solving, maintaining high accuracy and student satisfaction.
+                        </p>
                     </div>
                 </div>
-            </div>
 
-            <!-- McKinsey Highlight (SEXIER Version) -->
-            <div class="relative p-12 glass rounded-[48px] overflow-hidden border-indigo-500/20 group">
-                <div class="absolute inset-0 bg-indigo-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="absolute right-[-20px] top-[-20px] opacity-10 rotate-12 group-hover:rotate-0 transition-transform">
-                    <i data-lucide="award" class="w-64 h-64 text-indigo-400"></i>
+                <!-- Fifth Startup -->
+                <div class="group grid md:grid-cols-[1fr_3fr] gap-12 p-10 glass rounded-[40px] glass-hover transition-all">
+                    <div>
+                        <div class="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-4">2024</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Fifth Startup</h3>
+                        <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest italic">Data Science Intern</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-zinc-400 leading-relaxed">
+                            Performed EDA on 10K+ sales records, revealing 15% zero-sales vendor inefficiencies. Supported fundraising operations for SISFS, SIDBI, and Shark Tank India outreach.
+                        </p>
+                    </div>
                 </div>
-                
-                <h3 class="text-xs font-black text-indigo-400 uppercase tracking-[0.4em] mb-8">Executive Track</h3>
-                <h4 class="text-4xl font-black text-white mb-6 tracking-tighter">McKinsey Forward</h4>
-                <p class="text-zinc-400 leading-relaxed mb-10 text-lg">
-                    Graduated from the prestigious 10-week intensive program focused on the future of work skills, digital adaptability, and leadership in the AI age.
-                </p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4 text-white font-bold group/item">
-                        <span class="w-8 h-8 rounded-full glass flex items-center justify-center text-[10px] group-hover/item:bg-indigo-600 transition-colors">01</span>
-                        Qualified UGC-NET (1st Attempt)
+
+                <!-- CA Firm -->
+                <div class="group grid md:grid-cols-[1fr_3fr] gap-12 p-10 glass rounded-[40px] glass-hover transition-all">
+                    <div>
+                        <div class="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-4">2022</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">JAY JHA & CO.</h3>
+                        <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest italic">Financial Analyst Intern</p>
                     </div>
-                    <div class="flex items-center gap-4 text-white font-bold group/item">
-                        <span class="w-8 h-8 rounded-full glass flex items-center justify-center text-[10px] group-hover/item:bg-indigo-600 transition-colors">02</span>
-                        IIT-JAM Economics Specialist
-                    </div>
-                    <div class="flex items-center gap-4 text-white font-bold group/item">
-                        <span class="w-8 h-8 rounded-full glass flex items-center justify-center text-[10px] group-hover/item:bg-indigo-600 transition-colors">03</span>
-                        State Scholarship Awardee
+                    <div class="space-y-4">
+                        <p class="text-zinc-400 leading-relaxed">
+                            Led a 5-member team on ITR filing and project reporting. Maintained 100% audit compliance for GST/ITR documentation, mitigating financial risks.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -271,53 +236,188 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="py-32 px-8 bg-zinc-950/20">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold italic text-white mb-16">Projects</h2>
+    <section id="projects" class="py-32 px-8 z-10 relative">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold italic text-white mb-20">Academic Projects</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="p-10 glass rounded-[40px] glass-hover group">
-                    <i data-lucide="bar-chart" class="w-10 h-10 text-indigo-500 mb-8 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-2xl font-bold text-white mb-4 italic">Statistical Arbitrage</h3>
-                    <p class="text-zinc-400 leading-relaxed mb-8">
-                        Developed multi-method pairs trading on Indian Equities (Sensex 30). Achieved >12% returns using Cointegration & PCA.
+                <!-- Stat Arb -->
+                <div class="p-12 glass rounded-[48px] glass-hover group">
+                    <i data-lucide="line-chart" class="w-10 h-10 text-indigo-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2 italic">Statistical Arbitrage</h3>
+                    <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest mb-6 underline decoration-indigo-500/30">Guide: Prof. Satyendra Gupta, DSE</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8">
+                        Developed pairs trading strategies using <span class="text-white">Cointegration, ML, PCA, and Copula</span> on Sensex-30 data. Achieved <span class="text-indigo-400 font-bold">>12% returns</span> with a 1.8 Sharpe ratio.
                     </p>
-                    <div class="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Guide: Prof. Satyendra Gupta</div>
                 </div>
-                <div class="p-10 glass rounded-[40px] glass-hover group">
+                <!-- Fertility -->
+                <div class="p-12 glass rounded-[48px] glass-hover group">
                     <i data-lucide="users" class="w-10 h-10 text-indigo-500 mb-8 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="text-2xl font-bold text-white mb-4 italic">Fertility Trends</h3>
-                    <p class="text-zinc-400 leading-relaxed mb-8">
-                        Analyzed 1.2M microdata records from NFHS rounds. Corrected tempo-effect distortions to improve fertility forecasting.
+                    <h3 class="text-2xl font-bold text-white mb-2 italic">Fertility Forecasting</h3>
+                    <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest mb-6 underline decoration-indigo-500/30">Guide: Prof. Anish Gupta, DSE</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8">
+                        Analyzed <span class="text-white">1.2M microdata records</span> from NFHS. Corrected tempo-effect distortions to improve forecasting for India's demographic shift.
                     </p>
-                    <div class="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Guide: Prof. Anish Gupta</div>
+                </div>
+                <!-- Critical Minerals -->
+                <div class="p-12 glass rounded-[48px] glass-hover group">
+                    <i data-lucide="gem" class="w-10 h-10 text-indigo-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2 italic">Critical Minerals</h3>
+                    <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest mb-6 underline decoration-indigo-500/30">Guide: Prof. Srishti Gupta, IEG</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8">
+                        Researched REEs and India's import reliance. Evaluated economic-sustainability trade-offs in the high-tech supply chain against China's dominance.
+                    </p>
+                </div>
+                <!-- Stock Volatility -->
+                <div class="p-12 glass rounded-[48px] glass-hover group">
+                    <i data-lucide="trending-up" class="w-10 h-10 text-indigo-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2 italic">Market Volatility Prediction</h3>
+                    <p class="text-xs text-zinc-500 font-bold uppercase tracking-widest mb-6 underline decoration-indigo-500/30">Guide: Prof. Dhiraj Mani</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8">
+                        Forecasted NIFTY volatility using <span class="text-white">LASSO, RF, and LSTM</span>. LASSO emerged as the best performer with an <span class="text-indigo-400 font-bold">R² of 0.98</span>.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (SEXIER Version) -->
+    <!-- Skills -->
+    <section id="skills" class="py-32 px-8 relative z-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold italic text-white mb-20">Skill Inventory</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Technical -->
+                <div class="p-10 glass rounded-[40px] border-l-4 border-l-indigo-500">
+                    <h4 class="text-xs font-black uppercase tracking-[0.4em] text-indigo-400 mb-8">Technical Proficiencies</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Python</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">R</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Stata</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">SQL</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Power BI</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Machine Learning</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Data Viz</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">MS Office Suite</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">AI Tools</span>
+                    </div>
+                </div>
+                <!-- Interpersonal -->
+                <div class="p-10 glass rounded-[40px] border-l-4 border-l-zinc-700">
+                    <h4 class="text-xs font-black uppercase tracking-[0.4em] text-zinc-500 mb-8">Leadership & EQ</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Stakeholder Management</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Negotiation</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Decision-making</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Emotional Intelligence</span>
+                        <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-300">Adaptability</span>
+                    </div>
+                </div>
+                <!-- Extra -->
+                <div class="p-10 glass rounded-[40px] bg-indigo-600/5">
+                    <h4 class="text-xs font-black uppercase tracking-[0.4em] text-indigo-400 mb-8">Business Experience</h4>
+                    <p class="text-xs text-zinc-400 leading-relaxed italic">
+                        Managed family jewellery business for three years, optimizing inventory and sales strategy resulting in a <span class="text-white">20% revenue increase</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-32 px-8 relative z-10 bg-zinc-950/30">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold italic text-white mb-20">Education History</h2>
+            <div class="space-y-6">
+                <!-- DSE -->
+                <div class="p-10 glass rounded-[40px] flex justify-between items-center group">
+                    <div>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-indigo-400 mb-2">2024 — 2026 (Expected)</p>
+                        <h4 class="text-2xl font-bold text-white">M.A. Economics</h4>
+                        <p class="text-zinc-500 font-medium">Delhi School of Economics</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-indigo-500 font-bold text-xl uppercase tracking-widest">Pursuing</p>
+                    </div>
+                </div>
+                <!-- St Xavier -->
+                <div class="p-10 glass rounded-[40px] flex justify-between items-center group">
+                    <div>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-2">2021 — 2024</p>
+                        <h4 class="text-2xl font-bold text-white">BA (Hons.) Economics</h4>
+                        <p class="text-zinc-500 font-medium">St. Xavier's College</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-white font-black text-2xl">7.89<span class="text-sm text-zinc-500">/10</span></p>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">CGPA</p>
+                    </div>
+                </div>
+                <!-- Class XII -->
+                <div class="p-10 glass rounded-[40px] flex justify-between items-center group">
+                    <div>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-2">2021</p>
+                        <h4 class="text-2xl font-bold text-white">Class XII (JAC Board)</h4>
+                        <p class="text-zinc-500 font-medium">Inter Science College, Hazaribagh</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-white font-black text-2xl">91.4<span class="text-sm text-zinc-500">%</span></p>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-indigo-400">State Topper (Rank 9)</p>
+                    </div>
+                </div>
+                <!-- Class X -->
+                <div class="p-10 glass rounded-[40px] flex justify-between items-center group">
+                    <div>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-2">2019</p>
+                        <h4 class="text-2xl font-bold text-white">Class X (AISSE)</h4>
+                        <p class="text-zinc-500 font-medium">St. Paul School, Hazaribagh</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-white font-black text-2xl">96.0<span class="text-sm text-zinc-500">%</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership / McKinsey -->
+    <section class="py-32 px-8 z-10 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative p-12 glass rounded-[60px] overflow-hidden border-indigo-500/20 group animate-float">
+                <div class="absolute right-[-20px] top-[-20px] opacity-10 rotate-12">
+                    <i data-lucide="award" class="w-64 h-64 text-indigo-400"></i>
+                </div>
+                <h3 class="text-xs font-black text-indigo-400 uppercase tracking-[0.4em] mb-8">Executive Track</h3>
+                <h4 class="text-5xl font-black text-white mb-6 tracking-tighter">McKinsey Forward Graduate</h4>
+                <p class="text-zinc-400 leading-relaxed mb-10 text-lg max-w-2xl">
+                    10-week intensive program focused on future-of-work skills, digital adaptability, and leadership in the AI age.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-3 glass px-6 py-3 rounded-full text-xs font-bold text-white">
+                        <i data-lucide="check" class="w-4 h-4 text-indigo-500"></i> Senior Placement Coordinator (DSE)
+                    </div>
+                    <div class="flex items-center gap-3 glass px-6 py-3 rounded-full text-xs font-bold text-white">
+                        <i data-lucide="check" class="w-4 h-4 text-indigo-500"></i> Rotaract Club Editor
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="py-32 px-8 bg-black border-t border-white/5 relative overflow-hidden">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
-                <div class="max-w-xl">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid md:grid-cols-2 gap-20 items-center mb-20">
+                <div>
                     <h2 class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none mb-10">
                         Let's drive <br/> <span class="text-indigo-500">impact.</span>
                     </h2>
-                    <p class="text-zinc-500 text-lg mb-12">Currently based in Delhi. Designing frameworks for a global future.</p>
-                    <div class="flex flex-wrap gap-6">
-                        <a href="mailto:roshansoni.econdse@gmail.com" class="px-10 py-5 bg-white text-black font-black text-xs uppercase tracking-widest hover:bg-indigo-600 hover:text-white transition-all rounded-full">Email Me</a>
-                        <a href="https://www.linkedin.com/in/roshan-soni-a8a56123a" target="_blank" class="px-10 py-5 glass border-white/10 text-white font-black text-xs uppercase tracking-widest hover:border-indigo-500 transition-all rounded-full">LinkedIn</a>
-                    </div>
+                    <p class="text-zinc-500 text-lg max-w-sm">Open to roles in Data Strategy, Financial Economics, and Research Analyst positions.</p>
                 </div>
-                
-                <div class="flex flex-col gap-6 text-right md:items-end w-full md:w-auto">
-                    <div class="glass p-8 rounded-3xl w-full">
-                        <p class="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-4">Stack Summary</p>
-                        <div class="flex flex-wrap gap-2 justify-end">
-                            <span class="px-3 py-1 glass text-[9px] font-bold text-zinc-400 rounded-full">Python</span>
-                            <span class="px-3 py-1 glass text-[9px] font-bold text-zinc-400 rounded-full">R/Stata</span>
-                            <span class="px-3 py-1 glass text-[9px] font-bold text-zinc-400 rounded-full">SQL</span>
-                            <span class="px-3 py-1 glass text-[9px] font-bold text-zinc-400 rounded-full">Power BI</span>
+                <div class="space-y-8 text-right flex flex-col items-end">
+                    <div class="glass p-10 rounded-3xl w-full max-w-md text-left">
+                        <h4 class="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-6">Connect Directly</h4>
+                        <div class="space-y-4">
+                            <a href="mailto:roshansoni.econdse@gmail.com" class="block text-xl font-bold hover:text-indigo-500 transition-colors">roshansoni.econdse@gmail.com</a>
+                            <p class="text-zinc-400 font-medium">+91 62005 83723</p>
+                            <p class="text-xs text-zinc-600">5/11A Vijay Nagar, Near Mother Dairy, Delhi</p>
                         </div>
                     </div>
                 </div>
@@ -337,12 +437,10 @@
 
     <script>
         lucide.createIcons();
-        
-        // Parallax-ish Effect for Grid
         window.addEventListener('scroll', () => {
             const grid = document.querySelector('.bg-grid');
             const scrolled = window.pageYOffset;
-            grid.style.transform = `translateY(${scrolled * 0.1}px)`;
+            grid.style.transform = `translateY(${scrolled * 0.05}px)`;
         });
     </script>
 </body>
