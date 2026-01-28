@@ -3,105 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roshan Soni | Economics & Data Science</title>
+    <title>Roshan Soni | Economics & Data Strategy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap');
         
+        :root {
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #0f172a;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            color: #e2e8f0;
+            line-height: 1.6;
         }
 
         h1, h2, h3, .serif {
             font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
         }
 
-        .border-base {
-            border: 1px solid #e2e8f0;
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .section-padding {
-            padding-top: 5rem;
-            padding-bottom: 5rem;
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 0 0 30px var(--accent-glow);
         }
 
-        .hover-lift {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 50%;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
-        .hover-lift:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        .nav-link:hover::after {
+            width: 100%;
         }
 
-        /* Subtle grid background */
         .bg-grid {
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 30px 30px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+        }
+        
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 1rem;
+            padding: 1px;
+            background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-grid">
+<body class="overflow-x-hidden">
 
-    <!-- Minimal Nav -->
-    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="font-bold tracking-tighter text-xl">ROSHAN SONI</a>
-            <div class="hidden md:flex items-center gap-10">
-                <a href="#experience" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-black transition-colors">Experience</a>
-                <a href="#projects" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-black transition-colors">Projects</a>
-                <a href="#education" class="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-black transition-colors">Education</a>
-                <a href="mailto:roshansoni.econdse@gmail.com" class="text-xs font-bold uppercase tracking-widest px-4 py-2 border border-black hover:bg-black hover:text-white transition-all">Contact</a>
+    <!-- Subtle Background Elements -->
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="fixed top-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-900/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/40 backdrop-blur-xl">
+        <div class="max-w-6xl mx-auto px-8 h-20 flex items-center justify-between">
+            <a href="#" class="font-bold tracking-tighter text-xl text-white group flex items-center gap-2">
+                <span class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-[10px] group-hover:rotate-12 transition-transform">RS</span>
+                ROSHAN SONI
+            </a>
+            <div class="hidden md:flex items-center gap-12">
+                <a href="#experience" class="nav-link text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white">Experience</a>
+                <a href="#projects" class="nav-link text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white">Projects</a>
+                <a href="#leadership" class="nav-link text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white">Leadership</a>
+                <a href="mailto:roshansoni.econdse@gmail.com" class="px-6 py-2 bg-white text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-indigo-600 hover:text-white transition-all rounded-full">
+                    Contact
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="pt-40 pb-20 px-6 max-w-6xl mx-auto">
-        <div class="max-w-3xl">
-            <p class="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-6">M.A. Economics • Delhi School of Economics</p>
-            <h1 class="text-6xl md:text-8xl font-bold tracking-tight text-slate-900 mb-8">
-                Analyzing the <span class="italic">mechanics</span> of growth.
-            </h1>
-            <p class="text-xl text-slate-600 leading-relaxed mb-10">
-                A quantitative researcher focusing on the intersection of <span class="text-black font-medium underline underline-offset-4">econometrics</span> and <span class="text-black font-medium underline underline-offset-4">machine learning</span>. Currently building analytical frameworks at TATA Group.
-            </p>
-            <div class="flex items-center gap-6">
-                <a href="#experience" class="bg-black text-white px-8 py-4 text-sm font-bold hover:bg-slate-800 transition-all">Experience</a>
-                <a href="mailto:roshansoni.econdse@gmail.com" class="text-sm font-bold border-b-2 border-black pb-1 hover:text-indigo-600 transition-colors">Email me directly</a>
+    <!-- Hero Section -->
+    <header class="relative pt-48 pb-32 px-8 max-w-6xl mx-auto z-10">
+        <div class="grid lg:grid-cols-[1.5fr_1fr] gap-16 items-center">
+            <div>
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border-indigo-500/20 text-indigo-400 text-[10px] font-bold uppercase tracking-widest mb-8 animate-float">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_10px_#6366f1]"></span>
+                    Open for Strategic Roles
+                </div>
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-10 leading-[0.95] tracking-tighter">
+                    Economics <br/> <span class="text-indigo-500 italic font-medium">meets</span> Intelligence.
+                </h1>
+                <p class="text-xl text-zinc-400 max-w-xl mb-12 leading-relaxed font-light">
+                    Specializing in <span class="text-white font-medium text-glow">quantitative econometrics</span> and AI deployment. Currently refining evaluation frameworks at <span class="text-white font-medium border-b border-indigo-500/50">TATA Group</span>.
+                </p>
+                <div class="flex flex-wrap items-center gap-8">
+                    <a href="https://www.linkedin.com/in/roshan-soni-a8a56123a" target="_blank" class="flex items-center gap-3 px-8 py-4 glass rounded-2xl text-sm font-bold text-white hover:bg-indigo-600/20 hover:border-indigo-500/50 transition-all group">
+                        <i data-lucide="linkedin" class="w-5 h-5 text-indigo-400"></i> LinkedIn <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                    </a>
+                    <div class="flex items-center gap-4">
+                        <div class="h-12 w-px bg-zinc-800"></div>
+                        <div>
+                            <p class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Currently At</p>
+                            <p class="text-sm font-bold text-white">DSE, Delhi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hidden lg:block">
+                <div class="glass p-10 rounded-[40px] border-indigo-500/10 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="space-y-8">
+                        <div>
+                            <p class="text-4xl font-black text-white leading-none">91.4%</p>
+                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Rank 9 State Board</p>
+                        </div>
+                        <div class="h-px bg-zinc-800"></div>
+                        <div>
+                            <p class="text-4xl font-black text-indigo-500 leading-none">20%</p>
+                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Model Efficiency Gain</p>
+                        </div>
+                        <div class="h-px bg-zinc-800"></div>
+                        <div>
+                            <p class="text-4xl font-black text-white leading-none">1.8</p>
+                            <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Arbitrage Sharpe Ratio</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Experience -->
-    <section id="experience" class="section-padding px-6 bg-slate-50/50 border-y border-slate-100">
+    <section id="experience" class="py-32 px-8 relative z-10 border-t border-white/5 bg-zinc-950/30">
         <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-[1fr_2fr] gap-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
                 <div>
-                    <h2 class="text-3xl font-bold mb-4">Professional History</h2>
-                    <p class="text-slate-500 text-sm">A track record of leveraging data for strategic decision-making across corporate and research environments.</p>
+                    <h2 class="text-4xl font-bold italic text-white mb-4">Experience</h2>
+                    <p class="text-zinc-500 uppercase tracking-[0.3em] text-[10px] font-black">Building and analyzing at scale</p>
                 </div>
-                <div class="space-y-16">
-                    <!-- Item 1 -->
-                    <div class="relative pl-8 border-l border-slate-200">
-                        <div class="absolute w-3 h-3 bg-black rounded-full -left-[6.5px] top-2"></div>
-                        <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Jan 2025 — Present</span>
-                        <h3 class="text-2xl font-bold mt-2">Product Development Intern • TATA Group</h3>
-                        <p class="text-slate-600 mt-4 leading-relaxed">
-                            Developing a 7-parameter evaluation framework for enterprise platforms. Engineering ingestion strategies for 10,000+ datasets, resulting in a <span class="text-black font-semibold">20% improvement</span> in model reliability. Partnering with CEO and Strategy teams on national-scale deployments.
+                <div class="h-px bg-zinc-800 flex-1 mx-12 hidden md:block"></div>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Tata Group -->
+                <div class="group grid md:grid-cols-[1fr_2.5fr] gap-12 p-8 glass rounded-[32px] glass-hover transition-all">
+                    <div class="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em]">Jan 2025 — Present</div>
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold text-white group-hover:text-indigo-400 transition-colors">TATA Group</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed max-w-3xl">
+                            Designing a <span class="text-white">7-parameter evaluation framework</span> for enterprise AI Platforms. Successfully engineered ingestion strategies that boosted model reliability by 20%. Working directly with CEO-level strategy teams.
+                        </p>
+                        <div class="flex gap-4">
+                            <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-500 uppercase tracking-widest">AI Platforms</span>
+                            <span class="px-4 py-2 glass rounded-full text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Data Engineering</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IEG -->
+                <div class="group grid md:grid-cols-[1fr_2.5fr] gap-12 p-8 glass rounded-[32px] glass-hover transition-all">
+                    <div class="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em]">2024 — 2025</div>
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold text-white group-hover:text-indigo-400 transition-colors">Inst. of Economic Growth</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed max-w-3xl">
+                            Rigorous OLS modeling on <span class="text-white">629k+ NFHS records</span>. Dissected climate health disparities by mapping mortality across 30,000+ clusters.
                         </p>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="relative pl-8 border-l border-slate-200">
-                        <div class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[6.5px] top-2"></div>
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">2024 — 2025</span>
-                        <h3 class="text-2xl font-bold mt-2">Research Analyst Intern • IEG</h3>
-                        <p class="text-slate-600 mt-4 leading-relaxed">
-                            Conducted OLS modeling on <span class="text-black font-semibold">629k+ households</span> from NFHS data to analyze climate health disparities. Mapped mortality indicators across 30,000+ clusters using Koppen climate zones.
-                        </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section id="leadership" class="py-32 px-8 relative z-10">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
+            <!-- Leadership -->
+            <div class="space-y-12">
+                <h2 class="text-4xl font-bold italic text-white">Leadership</h2>
+                <div class="space-y-12 border-l border-zinc-800 pl-8">
+                    <div class="relative">
+                        <div class="absolute -left-[37px] top-2 w-4 h-4 bg-indigo-600 rounded-full border-4 border-[#050505]"></div>
+                        <h4 class="text-xl font-bold text-white mb-2 tracking-tight">Senior Placement Coordinator</h4>
+                        <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-4">Delhi School of Economics</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">Elected to manage career growth for 600+ students. Liaising with 200+ organizations.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[37px] top-2 w-4 h-4 bg-zinc-800 rounded-full border-4 border-[#050505]"></div>
+                        <h4 class="text-xl font-bold text-white mb-2 tracking-tight">Club Editor</h4>
+                        <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mb-4">Rotaract • St. Xavier's</p>
+                        <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">Impacted 1,000+ lives through 40+ club activities and strategic sponsorships.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- McKinsey Highlight (SEXIER Version) -->
+            <div class="relative p-12 glass rounded-[48px] overflow-hidden border-indigo-500/20 group">
+                <div class="absolute inset-0 bg-indigo-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="absolute right-[-20px] top-[-20px] opacity-10 rotate-12 group-hover:rotate-0 transition-transform">
+                    <i data-lucide="award" class="w-64 h-64 text-indigo-400"></i>
+                </div>
+                
+                <h3 class="text-xs font-black text-indigo-400 uppercase tracking-[0.4em] mb-8">Executive Track</h3>
+                <h4 class="text-4xl font-black text-white mb-6 tracking-tighter">McKinsey Forward</h4>
+                <p class="text-zinc-400 leading-relaxed mb-10 text-lg">
+                    Graduated from the prestigious 10-week intensive program focused on the future of work skills, digital adaptability, and leadership in the AI age.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 text-white font-bold group/item">
+                        <span class="w-8 h-8 rounded-full glass flex items-center justify-center text-[10px] group-hover/item:bg-indigo-600 transition-colors">01</span>
+                        Qualified UGC-NET (1st Attempt)
+                    </div>
+                    <div class="flex items-center gap-4 text-white font-bold group/item">
+                        <span class="w-8 h-8 rounded-full glass flex items-center justify-center text-[10px] group-hover/item:bg-indigo-600 transition-colors">02</span>
+                        IIT-JAM Economics Specialist
+                    </div>
+                    <div class="flex items-center gap-4 text-white font-bold group/item">
+                        <span class="w-8 h-8 rounded-full glass flex items-center justify-center text-[10px] group-hover/item:bg-indigo-600 transition-colors">03</span>
+                        State Scholarship Awardee
                     </div>
                 </div>
             </div>
@@ -109,89 +271,79 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="section-padding px-6">
+    <section id="projects" class="py-32 px-8 bg-zinc-950/20">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12">Selected Projects</h2>
-            <div class="grid md:grid-cols-2 gap-px bg-slate-200 border border-slate-200">
-                <div class="bg-white p-10 hover:bg-slate-50 transition-colors group">
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4 block">Quantitative Finance</span>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-indigo-600 transition-colors italic">Statistical Arbitrage & Pairs Trading</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-8">
-                        Implementation of cointegration and machine learning models on Sensex-30 data using Python.
+            <h2 class="text-4xl font-bold italic text-white mb-16">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-10 glass rounded-[40px] glass-hover group">
+                    <i data-lucide="bar-chart" class="w-10 h-10 text-indigo-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-4 italic">Statistical Arbitrage</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Developed multi-method pairs trading on Indian Equities (Sensex 30). Achieved >12% returns using Cointegration & PCA.
                     </p>
+                    <div class="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Guide: Prof. Satyendra Gupta</div>
                 </div>
-                <div class="bg-white p-10 hover:bg-slate-50 transition-colors group">
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4 block">Social Econometrics</span>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-indigo-600 transition-colors italic">Fertility Trends Forecasting</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-8">
-                        Microdata analysis of 1.2M NFHS records to track demographic shifts.
+                <div class="p-10 glass rounded-[40px] glass-hover group">
+                    <i data-lucide="users" class="w-10 h-10 text-indigo-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl font-bold text-white mb-4 italic">Fertility Trends</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Analyzed 1.2M microdata records from NFHS rounds. Corrected tempo-effect distortions to improve fertility forecasting.
                     </p>
+                    <div class="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Guide: Prof. Anish Gupta</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education & Skills -->
-    <section id="education" class="section-padding px-6 bg-black text-white">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20">
-            <div>
-                <h2 class="text-3xl font-bold mb-10 serif italic">Academic Credentials</h2>
-                <div class="space-y-10">
-                    <div class="border-b border-slate-800 pb-6">
-                        <p class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-2">2024 — 2026</p>
-                        <h4 class="text-xl font-bold">M.A. Economics</h4>
-                        <p class="text-slate-400">Delhi School of Economics</p>
+    <!-- Footer (SEXIER Version) -->
+    <footer class="py-32 px-8 bg-black border-t border-white/5 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
+                <div class="max-w-xl">
+                    <h2 class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none mb-10">
+                        Let's drive <br/> <span class="text-indigo-500">impact.</span>
+                    </h2>
+                    <p class="text-zinc-500 text-lg mb-12">Currently based in Delhi. Designing frameworks for a global future.</p>
+                    <div class="flex flex-wrap gap-6">
+                        <a href="mailto:roshansoni.econdse@gmail.com" class="px-10 py-5 bg-white text-black font-black text-xs uppercase tracking-widest hover:bg-indigo-600 hover:text-white transition-all rounded-full">Email Me</a>
+                        <a href="https://www.linkedin.com/in/roshan-soni-a8a56123a" target="_blank" class="px-10 py-5 glass border-white/10 text-white font-black text-xs uppercase tracking-widest hover:border-indigo-500 transition-all rounded-full">LinkedIn</a>
                     </div>
-                    <div class="border-b border-slate-800 pb-6">
-                        <p class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-2">Honors</p>
-                        <h4 class="text-xl font-bold">Qualified UGC-NET & IIT-JAM</h4>
-                        <p class="text-slate-400 italic">Economics (First Attempt, 2025)</p>
+                </div>
+                
+                <div class="flex flex-col gap-6 text-right md:items-end w-full md:w-auto">
+                    <div class="glass p-8 rounded-3xl w-full">
+                        <p class="text-[10px] font-black text-zinc-600 uppercase tracking-widest mb-4">Stack Summary</p>
+                        <div class="flex flex-wrap gap-2 justify-end">
+                            <span class="px-3 py-1 glass text-[9px] font-bold text-zinc-400 rounded-full">Python</span>
+                            <span class="px-3 py-1 glass text-[9px] font-bold text-zinc-400 rounded-full">R/Stata</span>
+                            <span class="px-3 py-1 glass text-[9px] font-bold text-zinc-400 rounded-full">SQL</span>
+                            <span class="px-3 py-1 glass text-[9px] font-bold text-zinc-400 rounded-full">Power BI</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <h2 class="text-3xl font-bold mb-10 serif italic">Core Competencies</h2>
-                <div class="grid grid-cols-2 gap-10">
-                    <div class="space-y-4">
-                        <h5 class="text-xs font-black uppercase text-slate-500 tracking-[0.2em]">Analysis</h5>
-                        <ul class="text-sm space-y-2 font-medium">
-                            <li>Econometrics</li>
-                            <li>Machine Learning</li>
-                            <li>Statistical Arbitrage</li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h5 class="text-xs font-black uppercase text-slate-500 tracking-[0.2em]">Technology</h5>
-                        <ul class="text-sm space-y-2 font-medium">
-                            <li>Python (Pandas, Scikit)</li>
-                            <li>R / Stata / SQL</li>
-                        </ul>
-                    </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10 pt-16 border-t border-white/5">
+                <p class="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.4em]">© 2025 ROSHAN SONI</p>
+                <div class="flex items-center gap-2 group">
+                    <span class="h-px w-8 bg-zinc-800 group-hover:bg-indigo-500 transition-all"></span>
+                    <a href="https://rahularya014.github.io/rahularya014/" target="_blank" class="text-[10px] font-black text-zinc-400 uppercase tracking-[0.4em] hover:text-indigo-400 transition-all">
+                        DESIGN BY RAHUL ARYA
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-20 px-6 border-t border-slate-100 bg-white">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div>
-                <p class="font-bold text-lg mb-2 tracking-tight">Roshan Soni</p>
-                <p class="text-slate-500 text-xs uppercase tracking-widest">Economic Analysis & Data Strategy</p>
-            </div>
-            <div class="flex gap-10">
-                <a href="mailto:roshansoni.econdse@gmail.com" class="text-xs font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-indigo-600 transition-colors">Email</a>
-                <a href="#" class="text-xs font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-indigo-600 transition-colors">LinkedIn</a>
-                <a href="#" class="text-xs font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-indigo-600 transition-colors">Github</a>
-            </div>
-            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">
-                <a href="https://rahularya014.github.io/rahularya014/" target="_blank" class="underline underline-offset-8 decoration-slate-300 hover:decoration-indigo-600 hover:text-indigo-600 transition-all">DESIGN BY RAHUL ARYA</a>
-            </p>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
+        
+        // Parallax-ish Effect for Grid
+        window.addEventListener('scroll', () => {
+            const grid = document.querySelector('.bg-grid');
+            const scrolled = window.pageYOffset;
+            grid.style.transform = `translateY(${scrolled * 0.1}px)`;
+        });
     </script>
 </body>
 </html>
